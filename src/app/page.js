@@ -18,6 +18,7 @@ export default function Home() {
   };
   const handleClick = () => {
     setTasks([{ taskName: inputValue, isCompleted: false }, ...tasks]);
+    setInputValue("");
   };
   const handleCompleted = (index) => {
     const updatedTasks = tasks.map((task, i) =>
@@ -38,8 +39,9 @@ export default function Home() {
           <h1 className="text-2xl font-bold ">To-Do list</h1>
 
           <div className="flex gap-1.5">
-            <Input setInputValue={setInputValue} />
+            <Input inputValue={inputValue} setInputValue={setInputValue} />
             <button
+              disabled={inputValue === ""}
               onClick={handleClick}
               className="bg-blue-600 h-10 w-14 text-white justify-center items-center flex rounded-md py-2 px-4 hover:opacity-80"
             >

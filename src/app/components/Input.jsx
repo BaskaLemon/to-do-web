@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Input = ({ setInputValue }) => {
+export const Input = ({ setInputValue, inputValue }) => {
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -8,6 +8,7 @@ export const Input = ({ setInputValue }) => {
   return (
     <div className="flex gap-1.5 rounded-md border w-72">
       <input
+        value={inputValue}
         onChange={handleChange}
         className=" w-72 rounded-md hover:border-blue-700 hover:border-2"
       />
