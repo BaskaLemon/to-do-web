@@ -3,7 +3,7 @@ import React from "react";
 export const FilteredTasks = ({
   filteredTasks,
   handleCompleted,
-  handleDelete,
+  handleAlert,
 }) => {
   return (
     <div className="text-stone-500  w-85 gap-1 ">
@@ -23,7 +23,7 @@ export const FilteredTasks = ({
               {task.taskName}
             </div>
             <button
-              onClick={() => handleDelete(index)}
+              onClick={() => handleAlert(index)}
               className="w-16.75 h-7.5 flex justify-center items-center rounded-[5px] text-[14px] text-red-400 bg-red-100 hover:bg-red-200"
             >
               Delete

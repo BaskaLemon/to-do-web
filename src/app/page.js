@@ -13,7 +13,18 @@ export default function Home() {
   const [colors, setColors] = useState();
   const completedCount = tasks.filter((task) => task.isCompleted).length;
   const totalCount = tasks.length;
-  const FilterButtons = ["All", "Active", "Completed"];
+  const handleAlert = (index) => {
+    const confirmed = window.confirm("Are you sure?");
+    if (confirmed) {
+      handleDelete(index);
+    }
+  };
+  const handleCompletedAlert = (index) => {
+    const confirmed = window.confirm("Are you sure?");
+    if (confirmed) {
+      clearCompleted(index);
+    }
+  };
   const clearCompleted = () => {
     setTasks(tasks.filter((task) => !task.isCompleted));
   };
@@ -52,12 +63,12 @@ export default function Home() {
         <FilteredTasks
           filteredTasks={filteredTasks}
           handleCompleted={handleCompleted}
-          handleDelete={handleDelete}
+          handleAlert={handleAlert}
         />
         <TotalCount
           completedCount={completedCount}
           totalCount={totalCount}
-          clearCompleted={clearCompleted}
+          handleCompletedAlert={handleCompletedAlert}
         />
 
         <Footer />
